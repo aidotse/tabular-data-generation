@@ -4,6 +4,20 @@ Out of variety of possible use cases from MIMIC dataset we focus on single use c
 
 This usecase seemed important - it is a benefit for payer to predict the tendency of the length of stay of a patient. It helps in changing the premium charged by the payer according to the comparison of predictions and baseline (the defined no. of days covered by a particular plan of the patient). For this use case the model utilises the total number of diagnosis that occured for different disease category for each patient.
 
+## Requirements
+
+We used the default implementation of CTGAN which is available here.
+
+https://github.com/sdv-dev/TGAN https://github.com/sdv-dev/CTGAN
+
+To use CTGAN do a pip install. Also, we will be installing the table_evaluator library which will help us in comparing the results with the original data.
+
+```
+pip install ctgan
+pip install tgan
+pip install table_evaluator
+```
+
 ## Dataset
 
 [MIMIC-IV v1.0](https://physionet.org/content/mimiciv/1.0/) contains deidentiﬁed data of 383,220 patients admitted to an intensive care unit (ICU) or the emergency department (ED) between 2008 - 2019. The latest version of MIMIC-IV is v0.4 and only provides public access to the electronic health record data of 50,048 patients admitted to the ICU, which is sourced from the clinical information system MetaVision at the BIDMC. 
@@ -97,3 +111,9 @@ We compared metrics as: Mean Squared Error, Root Mean Squared Error, Mean Absolu
 | synthetic CTGAN | 7.05 | 49.75 | 5.04 | 
 
 Script to run experiments can be found [HERE](./nn.py).
+
+## Acknowledgements
+
+The project was developed during the first rotation of the [Eye for AI Program](https://www.ai.se/en/eyeforai) at the AI Competence Center of [Sahlgrenska University Hospital](https://www.sahlgrenska.se/en/). Eye for AI initiative is a global program focused on bringing more international talents into the Swedish AI landscape.
+
+Works presented here depends on [Puskhar-v's repository](https://github.com/Pushkar-v/Generating-Synthetic-Data-using-GANs).
