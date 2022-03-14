@@ -39,8 +39,11 @@ More about data preparation and EDA based on chosen features can be found [HERE]
 The [Synthetic Data Vault (SDV)](https://github.com/sdv-dev/SDV) is a Synthetic Data Generation ecosystem of libraries that allows users to easily learn single-table, multi-table and time series datasets to later on generate new Synthetic Data that has the same format and statistical properties as the original dataset.
 
 We tried with CTGAN architecture from the framework.
+
 Package Reference:  [ctgan](https://pypi.org/project/ctgan/)
+
 Documentation : https://sdv-dev.github.io/CTGAN/
+
 Github: https://github.com/sdv-dev/CTGAN
 
 We trained the model for 100 epochs only as the discriminator and generator loss becomes quite low after these many epochs.
@@ -65,6 +68,8 @@ Subsequently, we can use original train data and synthetic train data to predict
 This is regresion task, in which algorithms like Regression Tree, Random Forest, XGBoost, Support Vector Machine and K-Nearest Neighbor, can be used.
 
 We tried with simple neural network:
+
+```
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
@@ -82,6 +87,7 @@ Total params: 14,501
 Trainable params: 14,501
 Non-trainable params: 0
 _________________________________________________________________
+```
 
 We compared metrics as: Mean Squared Error, Root Mean Squared Error, Mean Absolute Error, Mean Absolute Percentage Error.
 
