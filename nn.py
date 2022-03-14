@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from sklearn.preprocessing import StandardScaler
-import math
+import os, math
 from sklearn import metrics
 
 import pandas as pd
@@ -15,9 +15,6 @@ if __name__ == "__main__":
     parser.add_argument("--real_test", type=str, default='isic_predict.csv')
     parser.add_argument("--model_save", type=str, default='isic_ctgan.pkl',
                         help='path to save trained model')
-    parser.add_argument("--model", type=str, default='ctgan')
-    parser.add_argument("--epoch", type=int, default=300)
-    parser.add_argument("--num_samples", type=int, default=100000)
     args = parser.parse_args()
 
     ## neural network
@@ -63,7 +60,7 @@ if __name__ == "__main__":
 
     neur_net_model = model.fit(x_train_scaled, y_train, batch_size=50, 
                                epochs = 100, verbose = 0, validation_split = 0.2)
-
+    model.save_weights(os.path.join(args.model_save, 'real.pkl'))
     neur_net_predict = model.predict(x_test_scaled)
     rms_nn = math.sqrt(metrics.mean_squared_error(y_test, neur_net_predict))
     print('RMSE = {}'.format(rms_nn))
@@ -77,6 +74,7 @@ if __name__ == "__main__":
     neur_net_model = model.fit(x_train_ctgan_scaled, y_train_ctgan, batch_size=50,
                                epochs = 100, verbose = 0, validation_split = 0.2)
     neur_net_predict_ctgan = model.predict(x_test_scaled)
+    model.save_weights(os.path.join(args.model_save, 'synth.pkl'))
 
     rms_nn = math.sqrt(metrics.mean_squared_error(y_test, neur_net_predict_ctgan))
     print('RMSE = {}'.format(rms_nn))
