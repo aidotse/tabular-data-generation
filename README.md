@@ -18,6 +18,12 @@ pip install tgan
 pip install table_evaluator
 ```
 
+You can use provided by us conda [enviroment.yaml](./environment.yml).
+
+```
+conda env create -f environment.yml
+```
+
 ## Dataset
 
 [MIMIC-IV v1.0](https://physionet.org/content/mimiciv/1.0/) contains deidentiﬁed data of 383,220 patients admitted to an intensive care unit (ICU) or the emergency department (ED) between 2008 - 2019. The latest version of MIMIC-IV is v0.4 and only provides public access to the electronic health record data of 50,048 patients admitted to the ICU, which is sourced from the clinical information system MetaVision at the BIDMC. 
